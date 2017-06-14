@@ -13,9 +13,11 @@
 		5D67385D1EF1D48E0065F74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D67385B1EF1D48E0065F74F /* Main.storyboard */; };
 		5D67385F1EF1D48E0065F74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D67385E1EF1D48E0065F74F /* Assets.xcassets */; };
 		5D6738621EF1D48E0065F74F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6738601EF1D48E0065F74F /* LaunchScreen.storyboard */; };
+		FB415523506162BBA4E33094 /* Pods_Cocktail_Kit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66869781846132226E9DCD7 /* Pods_Cocktail_Kit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56978DE7564DC65D41B8E983 /* Pods-Cocktail Kit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail Kit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit.release.xcconfig"; sourceTree = "<group>"; };
 		5D6738521EF1D48E0065F74F /* Cocktail Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6738551EF1D48E0065F74F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D6738571EF1D48E0065F74F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		5D67385E1EF1D48E0065F74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D6738611EF1D48E0065F74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D6738631EF1D48E0065F74F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7609645670376EC982DEFAA1 /* Pods-Cocktail Kit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail Kit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit.debug.xcconfig"; sourceTree = "<group>"; };
+		B66869781846132226E9DCD7 /* Pods_Cocktail_Kit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cocktail_Kit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB415523506162BBA4E33094 /* Pods_Cocktail_Kit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5921C7590B7BD30B295A79B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7609645670376EC982DEFAA1 /* Pods-Cocktail Kit.debug.xcconfig */,
+				56978DE7564DC65D41B8E983 /* Pods-Cocktail Kit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5D6738491EF1D48E0065F74F = {
 			isa = PBXGroup;
 			children = (
 				5D6738541EF1D48E0065F74F /* Cocktail Kit */,
 				5D6738531EF1D48E0065F74F /* Products */,
+				5921C7590B7BD30B295A79B5 /* Pods */,
+				7BC33F705B43CB8D8E508919 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = "Cocktail Kit";
 			sourceTree = "<group>";
 		};
+		7BC33F705B43CB8D8E508919 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B66869781846132226E9DCD7 /* Pods_Cocktail_Kit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D6738661EF1D48E0065F74F /* Build configuration list for PBXNativeTarget "Cocktail Kit" */;
 			buildPhases = (
+				6B2A1DA332096453DB243810 /* [CP] Check Pods Manifest.lock */,
 				5D67384E1EF1D48E0065F74F /* Sources */,
 				5D67384F1EF1D48E0065F74F /* Frameworks */,
 				5D6738501EF1D48E0065F74F /* Resources */,
+				AE09C383CC0945F2A8B7F322 /* [CP] Embed Pods Frameworks */,
+				239B20BBBEDE5DDE8A47B5ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		239B20BBBEDE5DDE8A47B5ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B2A1DA332096453DB243810 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE09C383CC0945F2A8B7F322 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D67384E1EF1D48E0065F74F /* Sources */ = {
@@ -262,6 +337,7 @@
 		};
 		5D6738671EF1D48E0065F74F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7609645670376EC982DEFAA1 /* Pods-Cocktail Kit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Cocktail Kit/Info.plist";
@@ -274,6 +350,7 @@
 		};
 		5D6738681EF1D48E0065F74F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56978DE7564DC65D41B8E983 /* Pods-Cocktail Kit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Cocktail Kit/Info.plist";
