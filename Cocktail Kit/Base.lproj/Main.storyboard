@@ -121,24 +121,38 @@
         <scene sceneID="8sG-3D-RRE">
             <objects>
                 <collectionViewController id="uwM-Zf-vXa" customClass="CocktailsCollectionViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="syd-iE-OAS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="syd-iE-OAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="23c-ru-Y9a">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CocktailCell" id="Ktp-Km-tpI">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CocktailCell" id="Ktp-Km-tpI" customClass="CocktailViewCell" customModule="Cocktail_Kit" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-xG-s6B">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EYn-xG-s6B" secondAttribute="bottom" id="2UI-wK-m6B"/>
+                                    <constraint firstAttribute="trailing" secondItem="EYn-xG-s6B" secondAttribute="trailing" id="EDe-yV-LNf"/>
+                                    <constraint firstItem="EYn-xG-s6B" firstAttribute="top" secondItem="Ktp-Km-tpI" secondAttribute="top" id="Fmo-Sj-0GA"/>
+                                    <constraint firstItem="EYn-xG-s6B" firstAttribute="leading" secondItem="Ktp-Km-tpI" secondAttribute="leading" id="eTH-LR-Zvv"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="EYn-xG-s6B" id="NGo-fG-2fh"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -150,7 +164,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gK3-pK-XOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="-702"/>
+            <point key="canvasLocation" x="1725.5999999999999" y="-702.09895052473769"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="DBs-2S-tQc">

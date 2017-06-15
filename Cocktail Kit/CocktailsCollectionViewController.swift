@@ -15,18 +15,13 @@ private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 1
 
 class CocktailsCollectionViewController: UICollectionViewController {
 
-    let cocktails = [Int](1...30)
+    let cocktails = [#imageLiteral(resourceName: "test"), #imageLiteral(resourceName: "test1"), #imageLiteral(resourceName: "test2"), #imageLiteral(resourceName: "test3"), #imageLiteral(resourceName: "test4"), #imageLiteral(resourceName: "test5")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,11 +51,12 @@ class CocktailsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CocktailViewCell
     
         // Configure the cell
         cell.backgroundColor = .black
-    
+        cell.imageView.image = cocktails[indexPath.row]
+
         return cell
     }
 
