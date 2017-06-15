@@ -10,5 +10,8 @@ import UIKit
 
 class CocktailViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var nameTextField: UILabel!
+    @IBOutlet weak var categoryTextField: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var favoriteIconView: UIImageView!
 }
