@@ -4,17 +4,20 @@ PODS:
     - Alamofire (~> 4.1)
   - AlamofireNetworkActivityIndicator (2.1.0):
     - Alamofire (~> 4.1)
+  - AlgoliaSearch-Client-Swift (4.8.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireImage (~> 3.0)
   - AlamofireNetworkActivityIndicator (~> 2.0)
+  - AlgoliaSearch-Client-Swift (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
+  AlgoliaSearch-Client-Swift: 5bdfbc8727f203773245e2410edd7a9c8e831637
 
-PODFILE CHECKSUM: b4c0c4909c02282a2e61694de53f70655dd6d242
+PODFILE CHECKSUM: f680299d53a17670135c2d15690442b11a7725ff
 
 COCOAPODS: 1.2.1
