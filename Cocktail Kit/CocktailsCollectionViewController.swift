@@ -76,6 +76,8 @@ class CocktailsCollectionViewController: UICollectionViewController {
         let cocktail = cocktails[indexPath.row]
 
         // Configure the cell
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 10
         cell.backgroundColor = .black
         cell.nameTextField.text = cocktail.name
         cell.categoryTextField.text = cocktail.category
