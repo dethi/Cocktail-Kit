@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlgoliaSearch
+import AlamofireImage
 
 private let reuseIdentifier = "CocktailCell"
 
@@ -15,13 +17,31 @@ private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 1
 
 class CocktailsCollectionViewController: UICollectionViewController {
 
-    let cocktails = [#imageLiteral(resourceName: "test"), #imageLiteral(resourceName: "test1"), #imageLiteral(resourceName: "test2"), #imageLiteral(resourceName: "test3"), #imageLiteral(resourceName: "test4"), #imageLiteral(resourceName: "test5")]
+    var cocktails = [CocktailRecord]()
+
+    var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+
+        // Quick hack to have a filter button
+        searchController.searchBar.showsBookmarkButton = true
+        searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Normal]"), for: .bookmark, state: .normal)
+        searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Highlighted]"), for: .bookmark, state: .highlighted)
+
+        navigationItem.titleView = searchController.searchBar
+        definesPresentationContext = true
+
+        SearchService.shared.search(query: "") { (cocktails) in
+            self.cocktails = cocktails
+            self.collectionView?.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,15 +72,32 @@ class CocktailsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CocktailViewCell
-    
+
+        let cocktail = cocktails[indexPath.row]
+
         // Configure the cell
         cell.backgroundColor = .black
-        cell.imageView.image = cocktails[indexPath.row]
+        cell.nameTextField.text = cocktail.name
+        cell.categoryTextField.text = cocktail.category
+        if let url = cocktail.image {
+            cell.imageView.af_setImage(withURL: url)
+        }
 
         return cell
     }
 
     // MARK: UICollectionViewDelegate
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if (kind == UICollectionElementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+
+            return headerView
+        }
+
+        return UICollectionReusableView()
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -93,7 +130,7 @@ class CocktailsCollectionViewController: UICollectionViewController {
 
 }
 
-extension CocktailsCollectionViewController : UICollectionViewDelegateFlowLayout {
+extension CocktailsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
@@ -109,5 +146,16 @@ extension CocktailsCollectionViewController : UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension CocktailsCollectionViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            SearchService.shared.search(query: searchText) { (cocktails) in
+                self.cocktails = cocktails
+                self.collectionView?.reloadData()
+            }
+        }
     }
 }

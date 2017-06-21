@@ -137,7 +137,7 @@
                                 <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="201" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-xG-s6B">
@@ -203,7 +203,9 @@
                             <outlet property="delegate" destination="uwM-Zf-vXa" id="Qns-Dz-WG4"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="g5q-C7-8Qf"/>
+                    <navigationItem key="navigationItem" id="g5q-C7-8Qf">
+                        <nil key="title"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gK3-pK-XOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
