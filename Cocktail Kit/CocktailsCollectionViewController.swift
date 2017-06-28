@@ -78,11 +78,12 @@ class CocktailsCollectionViewController: UICollectionViewController {
         // Configure the cell
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
-        cell.backgroundColor = .black
         cell.nameTextField.text = cocktail.name
         cell.categoryTextField.text = cocktail.category
         if let url = cocktail.image {
-            cell.imageView.af_setImage(withURL: url)
+            cell.imageView.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Cell Placeholder"))
+        } else {
+            cell.imageView.image = #imageLiteral(resourceName: "Cell Placeholder")
         }
 
         return cell
@@ -101,35 +102,11 @@ class CocktailsCollectionViewController: UICollectionViewController {
         return UICollectionReusableView()
     }
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CocktailDetailTableViewController, let indexPath = collectionView?.indexPathsForSelectedItems?.first {
+            destination.cocktail = cocktails[indexPath.row]
+        }
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
 extension CocktailsCollectionViewController: UICollectionViewDelegateFlowLayout {

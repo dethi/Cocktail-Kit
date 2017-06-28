@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2A1DA11F03F0E5002C0166 /* CocktailDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A1DA01F03F0E5002C0166 /* CocktailDetailTableViewController.swift */; };
 		5D6738561EF1D48E0065F74F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6738551EF1D48E0065F74F /* AppDelegate.swift */; };
 		5D67385D1EF1D48E0065F74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D67385B1EF1D48E0065F74F /* Main.storyboard */; };
 		5D67385F1EF1D48E0065F74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D67385E1EF1D48E0065F74F /* Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		5D8C4FD21EF44A74006F33FD /* CocktailRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C4FD11EF44A74006F33FD /* CocktailRecord.swift */; };
 		5D8D76131EF2C8A400F2FA1A /* CocktailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D76121EF2C8A400F2FA1A /* CocktailsCollectionViewController.swift */; };
 		5D8D76151EF2C8DF00F2FA1A /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D76141EF2C8DF00F2FA1A /* FavoritesTableViewController.swift */; };
-		5D8D76171EF2C91F00F2FA1A /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D76161EF2C91F00F2FA1A /* CocktailDetailViewController.swift */; };
 		5D8D76191EF2C92C00F2FA1A /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D76181EF2C92C00F2FA1A /* RandomViewController.swift */; };
 		5D8D761B1EF3035700F2FA1A /* CocktailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D761A1EF3035700F2FA1A /* CocktailViewCell.swift */; };
 		FB415523506162BBA4E33094 /* Pods_Cocktail_Kit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66869781846132226E9DCD7 /* Pods_Cocktail_Kit.framework */; };
@@ -23,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		56978DE7564DC65D41B8E983 /* Pods-Cocktail Kit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail Kit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit.release.xcconfig"; sourceTree = "<group>"; };
+		5D2A1DA01F03F0E5002C0166 /* CocktailDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDetailTableViewController.swift; sourceTree = "<group>"; };
 		5D6738521EF1D48E0065F74F /* Cocktail Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6738551EF1D48E0065F74F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D67385C1EF1D48E0065F74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		5D8C4FD11EF44A74006F33FD /* CocktailRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailRecord.swift; sourceTree = "<group>"; };
 		5D8D76121EF2C8A400F2FA1A /* CocktailsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailsCollectionViewController.swift; sourceTree = "<group>"; };
 		5D8D76141EF2C8DF00F2FA1A /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
-		5D8D76161EF2C91F00F2FA1A /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
 		5D8D76181EF2C92C00F2FA1A /* RandomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		5D8D761A1EF3035700F2FA1A /* CocktailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailViewCell.swift; sourceTree = "<group>"; };
 		7609645670376EC982DEFAA1 /* Pods-Cocktail Kit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail Kit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cocktail Kit/Pods-Cocktail Kit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 				5D6738551EF1D48E0065F74F /* AppDelegate.swift */,
 				5D67385B1EF1D48E0065F74F /* Main.storyboard */,
 				5D8D76121EF2C8A400F2FA1A /* CocktailsCollectionViewController.swift */,
+				5D2A1DA01F03F0E5002C0166 /* CocktailDetailTableViewController.swift */,
 				5D8D76141EF2C8DF00F2FA1A /* FavoritesTableViewController.swift */,
-				5D8D76161EF2C91F00F2FA1A /* CocktailDetailViewController.swift */,
 				5D8D76181EF2C92C00F2FA1A /* RandomViewController.swift */,
 				5D67385E1EF1D48E0065F74F /* Assets.xcassets */,
 				5D6738601EF1D48E0065F74F /* LaunchScreen.storyboard */,
@@ -230,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2A1DA11F03F0E5002C0166 /* CocktailDetailTableViewController.swift in Sources */,
 				5D8C4FD21EF44A74006F33FD /* CocktailRecord.swift in Sources */,
 				5D8D761B1EF3035700F2FA1A /* CocktailViewCell.swift in Sources */,
 				5D6738561EF1D48E0065F74F /* AppDelegate.swift in Sources */,
@@ -237,7 +238,6 @@
 				5D8D76191EF2C92C00F2FA1A /* RandomViewController.swift in Sources */,
 				5D8C4FD01EF43B60006F33FD /* SearchService.swift in Sources */,
 				5D8D76151EF2C8DF00F2FA1A /* FavoritesTableViewController.swift in Sources */,
-				5D8D76171EF2C91F00F2FA1A /* CocktailDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
