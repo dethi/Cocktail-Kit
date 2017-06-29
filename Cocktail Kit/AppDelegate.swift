@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireNetworkActivityIndicator
 
 let themeColor = UIColor(red: 0.961, green: 0.580, blue: 0.000, alpha: 1.00)
 
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = themeColor
+        NetworkActivityIndicatorManager.shared.isEnabled = true
         return true
     }
 
