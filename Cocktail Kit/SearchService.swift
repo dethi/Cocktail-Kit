@@ -29,10 +29,18 @@ class SearchService {
         favorites = realm.objects(CocktailRecord.self).filter("favorite == true")
     }
 
-    func search(query: String, completion: @escaping (_ cocktails: [CocktailRecord]) -> Void) {
-        index.search(Query(query: query)) { (res, err) in
+    func search(_ query: String, completion: @escaping (_ cocktails: [CocktailRecord], _ nbPages: Int) -> Void) {
+        search(query, page: 0, completion: completion)
+    }
+
+    func search(_ query: String, page: Int, completion: @escaping (_ cocktails: [CocktailRecord], _ nbPages: Int) -> Void) {
+        let q = Query(query: query)
+        q.page = UInt(page)
+
+        index.search(q) { (res, err) in
             guard let res = res else { return }
             guard let nbHits = res["nbHits"] as? Int else { return }
+            guard let nbPages = res["nbPages"] as? Int else { return }
             guard let hits = res["hits"] as? [[String: AnyObject]] else { return }
 
             if query.isEmpty {
@@ -47,11 +55,11 @@ class SearchService {
                 }
             }
 
-            completion(cocktails)
+            completion(cocktails, nbPages)
         }
     }
 
-    func pickRandom(completion: @escaping (_ cocktail: CocktailRecord) -> Void) {
+    func pickRandom(_ completion: @escaping (_ cocktail: CocktailRecord) -> Void) {
         let id = Int(arc4random_uniform(UInt32(nbOfRecords)))
         index.getObject(withID: "\(id)") { (res, err) in
             guard let res = res else { return }

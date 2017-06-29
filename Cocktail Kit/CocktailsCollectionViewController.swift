@@ -18,6 +18,11 @@ private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 1
 class CocktailsCollectionViewController: UICollectionViewController {
 
     var cocktails = [CocktailRecord]()
+    var searchId = 0
+    var displayedSearchId = 0
+    var isLoadingMore = false
+    var loadedPage = 0
+    var nbPages = 0
 
     var searchController: UISearchController!
 
@@ -35,13 +40,11 @@ class CocktailsCollectionViewController: UICollectionViewController {
         searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Normal]"), for: .bookmark, state: .normal)
         searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Highlighted]"), for: .bookmark, state: .highlighted)
 
+        searchController.searchBar.text = ""
+        updateSearchResults(for: searchController)
+
         navigationItem.titleView = searchController.searchBar
         definesPresentationContext = true
-
-        SearchService.shared.search(query: "") { (cocktails) in
-            self.cocktails = cocktails
-            self.collectionView?.reloadData()
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +90,10 @@ class CocktailsCollectionViewController: UICollectionViewController {
 
         let cocktail = cocktails[indexPath.row]
         cell.setCocktail(cocktail)
+
+        if (indexPath.row + 4) >= cocktails.count {
+            loadMore()
+        }
         return cell
     }
 
@@ -126,10 +133,39 @@ extension CocktailsCollectionViewController: UICollectionViewDelegateFlowLayout 
 extension CocktailsCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            SearchService.shared.search(query: searchText) { (cocktails) in
+            let curSearchId = searchId
+            searchId += 1
+
+            SearchService.shared.search(searchText) { (cocktails, nbPages) in
+                guard curSearchId > self.displayedSearchId else { return }
+
+                self.displayedSearchId = curSearchId
+                self.loadedPage = 1
+                self.nbPages = nbPages
+                self.isLoadingMore = false
+
                 self.cocktails = cocktails
                 self.collectionView?.reloadData()
             }
+        }
+    }
+
+    func loadMore() {
+        guard !isLoadingMore else { return }
+        guard loadedPage < nbPages else { return }
+        guard let curQuery = searchController.searchBar.text else { return }
+
+        isLoadingMore = true
+
+        let curPage = loadedPage + 1
+        SearchService.shared.search(curQuery, page: curPage) { (cocktails, nbPages) in
+            guard curQuery == self.searchController.searchBar.text else { return }
+
+            self.loadedPage = curPage
+            self.isLoadingMore = false
+
+            self.cocktails.append(contentsOf: cocktails)
+            self.collectionView?.reloadData()
         }
     }
 }
