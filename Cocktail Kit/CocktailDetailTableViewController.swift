@@ -24,6 +24,9 @@ class CocktailDetailTableViewController: UITableViewController {
         if let cocktail = cocktail {
             self.title = cocktail.name
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         updateFavoriteButton()
     }
 
