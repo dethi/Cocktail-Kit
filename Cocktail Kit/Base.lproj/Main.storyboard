@@ -73,7 +73,7 @@
         <scene sceneID="pOd-IH-PMV">
             <objects>
                 <tableViewController id="86f-3B-wey" customClass="FavoritesTableViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hvX-SE-SI9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hvX-SE-SI9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,7 +95,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qrK-Rq-MRu" kind="show" id="SLq-JD-A9i"/>
+                                    <segue destination="qrK-Rq-MRu" kind="show" identifier="FavoriteCocktailDetail" id="SLq-JD-A9i"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,7 +104,32 @@
                             <outlet property="delegate" destination="86f-3B-wey" id="rnA-b7-1OU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="v9U-Ib-Q4U"/>
+                    <toolbarItems>
+                        <barButtonItem title="Delete" style="done" id="RQ2-6B-fhI">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deleteAction:" destination="86f-3B-wey" id="PMc-lc-mVU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="cancel" id="IRY-he-GTZ">
+                            <connections>
+                                <action selector="cancelAction:" destination="86f-3B-wey" id="YHG-Ab-7jZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Favorites" id="v9U-Ib-Q4U">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="loR-uq-OGM">
+                            <connections>
+                                <action selector="editAction:" destination="86f-3B-wey" id="gpI-BF-nUM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="IRY-he-GTZ" id="OIl-oQ-skL"/>
+                        <outlet property="deleteButton" destination="RQ2-6B-fhI" id="TGR-Wo-6Pp"/>
+                        <outlet property="editButton" destination="loR-uq-OGM" id="nOv-je-bcn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFI-pX-h4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +178,7 @@
         <scene sceneID="8sG-3D-RRE">
             <objects>
                 <collectionViewController id="uwM-Zf-vXa" customClass="CocktailsCollectionViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="syd-iE-OAS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="syd-iE-OAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
