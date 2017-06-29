@@ -141,7 +141,6 @@
 				TargetAttributes = {
 					5D6738511EF1D48E0065F74F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2N8RH44942;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -361,7 +360,7 @@
 			baseConfigurationReference = 7609645670376EC982DEFAA1 /* Pods-Cocktail Kit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2N8RH44942;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Cocktail Kit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.epita.Cocktail-Kit";
@@ -375,7 +374,7 @@
 			baseConfigurationReference = 56978DE7564DC65D41B8E983 /* Pods-Cocktail Kit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2N8RH44942;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Cocktail Kit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.epita.Cocktail-Kit";
