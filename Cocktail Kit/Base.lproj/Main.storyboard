@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,33 +23,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="83" y="313" width="209.5" height="41.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="362.5" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hX4-Bm-Rak">
+                                <rect key="frame" x="16" y="74" width="343" height="544"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LKt-B3-zZV">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="342.5"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LKt-B3-zZV" secondAttribute="height" multiplier="1:1" id="297-g3-WIa"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="dSO-16-jPy" appends="YES" id="xC5-cT-YC7"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M6-eY-eed">
+                                        <rect key="frame" x="120" y="352.5" width="103" height="191.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
+                                        <state key="normal" title="RANDOM"/>
+                                        <connections>
+                                            <action selector="getRandomCocktail" destination="8rJ-Kc-sve" eventType="touchUpInside" id="NSR-Kc-cbF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="hX4-Bm-Rak" secondAttribute="bottom" id="Pt9-z1-5sd"/>
+                            <constraint firstItem="hX4-Bm-Rak" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="bLW-Hf-d5g"/>
+                            <constraint firstItem="hX4-Bm-Rak" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="10" id="idh-l5-kkw"/>
+                            <constraint firstItem="hX4-Bm-Rak" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="rS2-Vi-iak"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rRE-ba-4Xc"/>
+                    <connections>
+                        <outlet property="cocktailImage" destination="LKt-B3-zZV" id="86G-XQ-iCc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dSO-16-jPy">
+                    <connections>
+                        <segue destination="qrK-Rq-MRu" kind="show" identifier="RandomCocktailDetail" id="s93-kc-BWJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1726" y="0.0"/>
+            <point key="canvasLocation" x="1725.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Favorites Table View Controller-->
         <scene sceneID="pOd-IH-PMV">
@@ -122,10 +141,11 @@
         <scene sceneID="8sG-3D-RRE">
             <objects>
                 <collectionViewController id="uwM-Zf-vXa" customClass="CocktailsCollectionViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="syd-iE-OAS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="syd-iE-OAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="23c-ru-Y9a">
                             <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -160,6 +180,7 @@
                                                 </label>
                                                 <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Favorites Icon" translatesAutoresizingMaskIntoConstraints="NO" id="MP5-US-5ea">
                                                     <rect key="frame" x="166" y="13" width="18" height="18"/>
+                                                    <color key="tintColor" red="0.991535484790802" green="0.01470673643052578" blue="0.26246705651283264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="UCv-me-1fz"/>
                                                         <constraint firstAttribute="height" constant="18" id="bZI-P3-5au"/>
@@ -202,6 +223,7 @@
                         <connections>
                             <outlet property="dataSource" destination="uwM-Zf-vXa" id="uYa-Hh-jcT"/>
                             <outlet property="delegate" destination="uwM-Zf-vXa" id="Qns-Dz-WG4"/>
+                            <outletCollection property="gestureRecognizers" destination="xQo-2f-suZ" appends="YES" id="MZj-d2-Hzt"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="g5q-C7-8Qf">
@@ -209,6 +231,11 @@
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gK3-pK-XOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesBegan="YES" delaysTouchesEnded="NO" numberOfTapsRequired="2" id="xQo-2f-suZ">
+                    <connections>
+                        <action selector="favoriteDoubleTap:" destination="uwM-Zf-vXa" id="3xe-0r-8MD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1725.5999999999999" y="-702.09895052473769"/>
         </scene>
@@ -222,7 +249,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescriptionCell" textLabel="V1M-0S-Abe" style="IBUITableViewCellStyleDefault" id="7w7-Rj-ZZU">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7w7-Rj-ZZU" id="MfR-4c-as1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -239,21 +266,21 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" textLabel="u2H-6c-EuM" detailTextLabel="GxL-HS-lJz" style="IBUITableViewCellStyleValue1" id="ATm-FG-KpQ">
-                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATm-FG-KpQ" id="D5i-eb-owQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u2H-6c-EuM">
-                                            <rect key="frame" x="15" y="12" width="33" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GxL-HS-lJz">
-                                            <rect key="frame" x="316" y="12" width="44" height="21"/>
+                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -272,7 +299,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3os-Ly-bQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="-702"/>
+            <point key="canvasLocation" x="2578" y="-702"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="DBs-2S-tQc">
@@ -318,4 +345,7 @@
         <image name="Favorites Icon" width="30" height="30"/>
         <image name="Random Icon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="s93-kc-BWJ"/>
+    </inferredMetricsTieBreakers>
 </document>

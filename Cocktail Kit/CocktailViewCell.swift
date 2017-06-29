@@ -14,4 +14,19 @@ class CocktailViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryTextField: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var favoriteIconView: UIImageView!
+
+    func setCocktail(_ cocktail: CocktailRecord) {
+        layer.masksToBounds = true
+        layer.cornerRadius = 10
+
+        nameTextField.text = cocktail.name
+        categoryTextField.text = cocktail.category
+        if let url = cocktail.image {
+            imageView.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Cell Placeholder"))
+        } else {
+            imageView.image = #imageLiteral(resourceName: "Cell Placeholder")
+        }
+        favoriteIconView.image = favoriteIconView.image?.withRenderingMode(.alwaysTemplate)
+        favoriteIconView.isHidden = !cocktail.favorite
+    }
 }

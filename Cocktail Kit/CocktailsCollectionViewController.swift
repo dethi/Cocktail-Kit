@@ -46,25 +46,31 @@ class CocktailsCollectionViewController: UICollectionViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    /*
+    @IBAction func favoriteDoubleTap(_ sender: UITapGestureRecognizer) {
+        guard sender.state == .ended else { return }
+
+        let point = sender.location(in: collectionView)
+        if let indexPath = collectionView?.indexPathForItem(at: point) {
+            cocktails[indexPath.row].toggleFavorite()
+            collectionView?.reloadItems(at: [indexPath])
+        }
+    }
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? CocktailDetailTableViewController, let indexPath = collectionView?.indexPathsForSelectedItems?.first {
+            destination.cocktail = cocktails[indexPath.row]
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cocktails.count
@@ -74,18 +80,7 @@ class CocktailsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CocktailViewCell
 
         let cocktail = cocktails[indexPath.row]
-
-        // Configure the cell
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 10
-        cell.nameTextField.text = cocktail.name
-        cell.categoryTextField.text = cocktail.category
-        if let url = cocktail.image {
-            cell.imageView.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Cell Placeholder"))
-        } else {
-            cell.imageView.image = #imageLiteral(resourceName: "Cell Placeholder")
-        }
-
+        cell.setCocktail(cocktail)
         return cell
     }
 
@@ -100,12 +95,6 @@ class CocktailsCollectionViewController: UICollectionViewController {
         }
 
         return UICollectionReusableView()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CocktailDetailTableViewController, let indexPath = collectionView?.indexPathsForSelectedItems?.first {
-            destination.cocktail = cocktails[indexPath.row]
-        }
     }
 }
 

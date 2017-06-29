@@ -19,6 +19,8 @@ struct CocktailRecord {
     let dateModified: String?
     let ingredients: [IngredientRecord]
 
+    var favorite = false
+
     init(json: [String: AnyObject]) {
         self.objectID = json["objectID"] as! String
         self.name = json["name"] as! String
@@ -42,6 +44,10 @@ struct CocktailRecord {
             }
         }
         self.ingredients = ingredients
+    }
+
+    mutating func toggleFavorite() {
+        favorite = !favorite
     }
 }
 
