@@ -37,9 +37,9 @@
                                         </connections>
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M6-eY-eed">
-                                        <rect key="frame" x="120" y="352.5" width="103" height="191.5"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
-                                        <state key="normal" title="RANDOM"/>
+                                        <rect key="frame" x="84.5" y="352.5" width="174" height="191.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="54"/>
+                                        <state key="normal" title="🍹🍸🥂"/>
                                         <connections>
                                             <action selector="getRandomCocktail" destination="8rJ-Kc-sve" eventType="touchUpInside" id="NSR-Kc-cbF"/>
                                         </connections>
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="1725.5999999999999" y="-0.44977511244377816"/>
         </scene>
-        <!--Favorites Table View Controller-->
+        <!--Favorites-->
         <scene sceneID="pOd-IH-PMV">
             <objects>
                 <tableViewController id="86f-3B-wey" customClass="FavoritesTableViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,13 +78,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" id="A5E-DO-Kru">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" textLabel="dCh-3K-HDe" style="IBUITableViewCellStyleDefault" id="A5E-DO-Kru">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A5E-DO-Kru" id="pHc-xG-sah">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCh-3K-HDe">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qrK-Rq-MRu" kind="show" id="SLq-JD-A9i"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,7 +104,7 @@
                             <outlet property="delegate" destination="86f-3B-wey" id="rnA-b7-1OU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="v9U-Ib-Q4U"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="v9U-Ib-Q4U"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFI-pX-h4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,7 +311,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3os-Ly-bQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2578" y="-702"/>
+            <point key="canvasLocation" x="2775" y="0.0"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="DBs-2S-tQc">
