@@ -42,8 +42,7 @@ class SearchService {
             var cocktails = [CocktailRecord]()
             try! self.realm.write {
                 for hit in hits {
-                    let cocktail = CocktailRecord(value: hit)
-                    self.realm.add(cocktail, update: true)
+                    let cocktail = self.realm.create(CocktailRecord.self, value: hit, update: true)
                     cocktails.append(cocktail)
                 }
             }
