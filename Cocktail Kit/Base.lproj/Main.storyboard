@@ -178,7 +178,7 @@
         <scene sceneID="8sG-3D-RRE">
             <objects>
                 <collectionViewController id="uwM-Zf-vXa" customClass="CocktailsCollectionViewController" customModule="Cocktail_Kit" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="syd-iE-OAS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="syd-iE-OAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,7 +286,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescriptionCell" textLabel="V1M-0S-Abe" style="IBUITableViewCellStyleDefault" id="7w7-Rj-ZZU">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7w7-Rj-ZZU" id="MfR-4c-as1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -303,7 +303,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" textLabel="u2H-6c-EuM" detailTextLabel="GxL-HS-lJz" style="IBUITableViewCellStyleValue1" id="ATm-FG-KpQ">
-                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATm-FG-KpQ" id="D5i-eb-owQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -400,6 +400,6 @@
         <image name="Random Icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SLq-JD-A9i"/>
+        <segue reference="sN2-lx-zvE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -35,11 +35,6 @@ class CocktailsCollectionViewController: UICollectionViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.sizeToFit()
 
-        // Quick hack to have a filter button
-        searchController.searchBar.showsBookmarkButton = true
-        searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Normal]"), for: .bookmark, state: .normal)
-        searchController.searchBar.setImage(#imageLiteral(resourceName: "Filter Icon [Highlighted]"), for: .bookmark, state: .highlighted)
-
         searchController.searchBar.text = ""
         updateSearchResults(for: searchController)
 
