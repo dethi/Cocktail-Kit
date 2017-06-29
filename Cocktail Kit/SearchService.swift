@@ -2,7 +2,6 @@
 //  SearchService.swift
 //  Cocktail Kit
 //
-//  Created by Thibault Deutsch on 16/06/2017.
 //  Copyright © 2017 ATKF. All rights reserved.
 //
 

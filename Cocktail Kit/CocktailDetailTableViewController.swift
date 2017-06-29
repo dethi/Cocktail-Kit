@@ -2,7 +2,6 @@
 //  CocktailDetailTableViewController.swift
 //  Cocktail Kit
 //
-//  Created by Thibault Deutsch on 28/06/2017.
 //  Copyright © 2017 ATKF. All rights reserved.
 //
 
