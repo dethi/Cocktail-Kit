@@ -44,6 +44,10 @@ class CocktailsCollectionViewController: UICollectionViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView?.reloadData()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -53,7 +57,9 @@ class CocktailsCollectionViewController: UICollectionViewController {
 
         let point = sender.location(in: collectionView)
         if let indexPath = collectionView?.indexPathForItem(at: point) {
-            cocktails[indexPath.row].toggleFavorite()
+            SearchService.shared.write {
+                cocktails[indexPath.row].toggleFavorite()
+            }
             collectionView?.reloadItems(at: [indexPath])
         }
     }

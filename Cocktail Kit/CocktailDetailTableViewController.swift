@@ -25,7 +25,6 @@ class CocktailDetailTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -68,21 +67,11 @@ class CocktailDetailTableViewController: UITableViewController {
         if let ingredient = cocktail?.ingredients[indexPath.row] {
             cell.textLabel?.text = ingredient.name
             cell.detailTextLabel?.text = ingredient.measure
-            if let url = ingredient.image {
+            if let url = ingredient.getImageURL() {
                 cell.imageView?.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Question Mark"))
             }
         }
 
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

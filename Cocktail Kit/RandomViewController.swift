@@ -46,7 +46,7 @@ class RandomViewController: UIViewController {
             self.cocktail = cocktail
 
             self.navigationItem.title = cocktail.name
-            if let url = cocktail.image {
+            if let url = cocktail.getImageURL() {
                 self.cocktailImage.af_setImage(withURL: url)
             } else {
                 self.cocktailImage.image = #imageLiteral(resourceName: "Question Mark")

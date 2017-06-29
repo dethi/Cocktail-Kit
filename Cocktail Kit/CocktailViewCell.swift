@@ -21,12 +21,12 @@ class CocktailViewCell: UICollectionViewCell {
 
         nameTextField.text = cocktail.name
         categoryTextField.text = cocktail.category
-        if let url = cocktail.image {
+        if let url = cocktail.getImageURL() {
             imageView.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Cell Placeholder"))
         } else {
             imageView.image = #imageLiteral(resourceName: "Cell Placeholder")
         }
         favoriteIconView.image = favoriteIconView.image?.withRenderingMode(.alwaysTemplate)
-        favoriteIconView.isHidden = !cocktail.favorite
+        favoriteIconView.isHidden = !cocktail.isFavorite()
     }
 }

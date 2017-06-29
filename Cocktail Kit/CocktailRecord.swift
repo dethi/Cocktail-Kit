@@ -7,63 +7,50 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct CocktailRecord {
-    let objectID: String
-    let name: String
-    let isAlcoholic: Bool
-    let instructions: String?
-    let image: URL?
-    let category: String?
-    let glass: String?
-    let dateModified: String?
-    let ingredients: [IngredientRecord]
+class CocktailRecord : Object {
+    dynamic var objectID = ""
+    dynamic var name = ""
+    dynamic var isAlcoholic = false
+    dynamic var instructions: String?
+    dynamic var image: String?
+    dynamic var category: String?
+    dynamic var glass: String?
+    dynamic var dateModified: String?
+    let favorite = RealmOptional<Bool>()
 
-    var favorite = false
+    let ingredients = List<IngredientRecord>()
 
-    init(json: [String: AnyObject]) {
-        self.objectID = json["objectID"] as! String
-        self.name = json["name"] as! String
-        self.isAlcoholic = (json["isAlcoholic"] as? Bool) ?? false
-        self.instructions = json["instructions"] as? String
-
-        if let img = json["image"] as? String {
-            self.image = URL(string: img)
-        } else {
-            self.image = nil
-        }
-
-        self.category = json["category"] as? String
-        self.glass = json["glass"] as? String
-        self.dateModified = json["dateModified"] as? String
-
-        var ingredients = [IngredientRecord]()
-        if let jsonIngredients = json["ingredients"] as? [[String: AnyObject]] {
-            for jsonIngredient in jsonIngredients {
-                ingredients.append(IngredientRecord(json: jsonIngredient))
-            }
-        }
-        self.ingredients = ingredients
+    override static func primaryKey() -> String? {
+        return "objectID"
     }
 
-    mutating func toggleFavorite() {
-        favorite = !favorite
+    override static func indexedProperties() -> [String] {
+        return ["favorite"]
+    }
+
+    func getImageURL() -> URL? {
+        guard let img = image else { return nil }
+        return URL(string: img)
+    }
+
+    func isFavorite() -> Bool {
+        return favorite.value ?? false
+    }
+
+    func toggleFavorite() {
+        favorite.value = !(favorite.value ?? false)
     }
 }
 
-struct IngredientRecord {
-    let name: String
-    let measure: String?
-    let image: URL?
+class IngredientRecord : Object {
+    dynamic var name: String = ""
+    dynamic var measure: String?
+    dynamic var image: String?
 
-    init(json: [String: AnyObject]) {
-        name = json["name"] as! String
-        measure = json["measure"] as? String
-
-        if let img = json["image"] as? String {
-            image = URL(string: img)
-        } else {
-            image = nil
-        }
+    func getImageURL() -> URL? {
+        guard let img = image else { return nil }
+        return URL(string: img)
     }
 }
