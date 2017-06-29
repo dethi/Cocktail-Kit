@@ -12,6 +12,9 @@ class CocktailDetailTableViewController: UITableViewController {
 
     var cocktail: CocktailRecord?
 
+    @IBOutlet var noFavoriteButton: UIBarButtonItem!
+    @IBOutlet var favoriteButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,10 +24,30 @@ class CocktailDetailTableViewController: UITableViewController {
         if let cocktail = cocktail {
             self.title = cocktail.name
         }
+        updateFavoriteButton()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @IBAction func toggleFavorite(_ sender: Any) {
+        SearchService.shared.write {
+            cocktail?.toggleFavorite()
+        }
+        updateFavoriteButton()
+    }
+
+    func updateFavoriteButton() {
+        if let cocktail = cocktail {
+            if cocktail.isFavorite() {
+                navigationItem.rightBarButtonItem = favoriteButton
+            } else {
+                navigationItem.rightBarButtonItem = noFavoriteButton
+            }
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
 
     // MARK: - Table view data source
