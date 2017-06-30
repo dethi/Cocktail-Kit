@@ -63,11 +63,12 @@ class SearchService {
         index.getObject(withID: "\(id)") { (res, err) in
             guard let res = res else { return }
 
-            let cocktail = CocktailRecord(value: res)
+            var cocktail: CocktailRecord? = nil
             try! self.realm.write {
-                self.realm.add(cocktail, update: true)
+                cocktail = self.realm.create(CocktailRecord.self, value: res, update: true)
             }
-            completion(cocktail)
+
+            completion(cocktail!)
         }
     }
 
