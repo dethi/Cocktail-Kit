@@ -1,4 +1,4 @@
-# Cocktail-Kit
+# Cocktail Kit
 
 All your favorites cocktails in an app!
 
